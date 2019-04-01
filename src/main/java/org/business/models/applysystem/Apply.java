@@ -8,24 +8,36 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 	
 @Entity
+@Table
+@Data
 public class Apply implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
-    private final static String TYPE_INDIVIDUAL = "0";
-    private final static String TYPE_CORPORATION = "1";
-    private final static String TYPE_OTHER = "2";
+    public final static String TYPE_INDIVIDUAL = "0";
+    public final static String TYPE_CORPORATION = "1";
+    public final static String TYPE_OTHER = "2";
+    
+    public final static String DELETED_FALSE = "0";
+    public final static String DELETED_TRUE = "1";
+    
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     
     @Column(unique=true)
     private String number;
+    
+    @Column(unique=true)
+    private String name;
     
     @Column
     private String type;
@@ -46,10 +58,16 @@ public class Apply implements Serializable {
     private String createBy;
     
     @Column
-    private Date createTime;
+    private String createTime;
     
     @Column
-    private Integer userID;
+    private String updateBy;
+     
+    @Column
+    private String updateTime;
+    
+    @Column
+    private Long userID;
 
     @Column
     private String image;
@@ -58,99 +76,9 @@ public class Apply implements Serializable {
     @Column
     private String ip;
     
-    
-    public Apply(){}
-    
-	public String getIp() {
-		return ip;
-	}
-	public Apply setIp(String ip) {
-		this.ip = ip;
-		return this;
-	}
-	public Integer getId() {
-		return id;
-	}
-	public Apply setId(Integer id) {
-		this.id = id;
-		return this;
-	}
-	public String getNumber() {
-		return number;
-	}
-	public Apply setNumber(String number) {
-		this.number = number;
-		return this;
-	}
-	public String getType() {
-		return type;
-	}
-	public Apply setType(String type) {
-		this.type = type;
-		return this;
-	}
-	public String getArea() {
-		return area;
-	}
-	public Apply setArea(String area) {
-		this.area = area;
-		return this;
-	}
-	public String getCity() {
-		return city;
-	}
-	public Apply setCity(String city) {
-		this.city = city;
-		return this;
-	}
-	public String getProvince() {
-		return province;
-	}
-	public Apply setProvince(String province) {
-		this.province = province;
-		return this;
-	}
-	public String getCountry() {
-		return country;
-	}
-	public Apply setCountry(String country) {
-		this.country = country;
-		return this;
-	}
-	public Integer getUserID() {
-		return userID;
-	}
-	public Apply setUserID(Integer userID) {
-		this.userID = userID;
-		return this;
-	}
-	public String getImage() {
-		return image;
-	}
-	public Apply setImage(String image) {
-		this.image = image;
-		return this;
-	}
-
-	public String getCreateBy() {
-		return createBy;
-	}
-
-	public Apply setCreateBy(String createBy) {
-		this.createBy = createBy;
-		return this;
-	}
-
-	public Date getCreateTime() {
-		return createTime;
-	}
-
-	public Apply setCreateTime(Date createTime) {
-		this.createTime = createTime;
-		return this;
-	}
-
-	
+    @JsonIgnore
+    @Column
+    private String deleted;
     
 
 }

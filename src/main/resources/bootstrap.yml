@@ -1,0 +1,8 @@
+
+############ data access ############ 
+spring:
+  application:
+    name: model
+  cloud:
+    config:
+      uri: ${CONFIG_SERVER_URL:http://localhost:8888}
