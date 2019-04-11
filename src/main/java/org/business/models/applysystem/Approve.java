@@ -24,14 +24,6 @@ public class Approve implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
-    public static final String TYPE_APPROVE = "1";
-    public static final String TYPE_REVIEW = "2";
-    
-    public static final String RESULT_SAVE = "1";
-    public static final String RESULT_PASS = "2";
-    public static final String RESULT_FAIL = "3";
-    
-    
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)

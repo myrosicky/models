@@ -21,14 +21,7 @@ public class Apply implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
-    public final static String TYPE_INDIVIDUAL = "0";
-    public final static String TYPE_CORPORATION = "1";
-    public final static String TYPE_OTHER = "2";
     
-    public final static String DELETED_FALSE = "0";
-    public final static String DELETED_TRUE = "1";
-    
-
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
@@ -54,18 +47,23 @@ public class Apply implements Serializable {
     @Column
     private String country;
 
+    @JsonIgnore
     @Column
     private String createBy;
     
+    @JsonIgnore
     @Column
     private String createTime;
     
+    @JsonIgnore
     @Column
     private String updateBy;
      
+    @JsonIgnore
     @Column
     private String updateTime;
     
+    @JsonIgnore
     @Column
     private Long userID;
 
@@ -80,5 +78,4 @@ public class Apply implements Serializable {
     @Column
     private String deleted;
     
-
 }
