@@ -13,15 +13,18 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedAttributeNode;
 import javax.persistence.NamedEntityGraph;
+import javax.persistence.NamedEntityGraphs;
 
 import lombok.Data;
 import lombok.ToString;
 
 @Entity
 @Data
-@NamedEntityGraph(name = "menuRole.fetchRole", attributeNodes = {@NamedAttributeNode("role")})
-@NamedEntityGraph(name = "menuRole.fetchUser", attributeNodes = {@NamedAttributeNode("user")})
-@NamedEntityGraph(name = "menuRole.fetchMenu", attributeNodes = {@NamedAttributeNode("menu")})
+@NamedEntityGraphs({
+	@NamedEntityGraph(name = "menuRole.fetchRole", attributeNodes = {@NamedAttributeNode("role")}),
+	@NamedEntityGraph(name = "menuRole.fetchUser", attributeNodes = {@NamedAttributeNode("user")}),
+	@NamedEntityGraph(name = "menuRole.fetchMenu", attributeNodes = {@NamedAttributeNode("menu")})
+})
 public class MenuRole {
 
 	@Id

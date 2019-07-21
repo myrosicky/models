@@ -1,5 +1,3 @@
-
-############ data access ############ 
 spring:
   application:
     name: model

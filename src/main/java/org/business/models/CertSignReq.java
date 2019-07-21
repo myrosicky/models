@@ -7,6 +7,7 @@ public class CertSignReq {
 
 	private String keystore;
 	private String storePassword;
+	private String storeType;
 	private String keyAlias;
 	private String keyPassword;
 	private String file;

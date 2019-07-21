@@ -36,8 +36,6 @@ public class AppException extends RuntimeException {
 		super(cause);
 	}
 	
-	
-	
 	public String getErrCode() {
 		return errCode;
 	}

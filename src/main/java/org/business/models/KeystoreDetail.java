@@ -3,10 +3,11 @@ package org.business.models;
 import lombok.Data;
 
 @Data
-public class Cert {
+public class KeystoreDetail {
 
 	private String keystore;
 	private String storePassword;
+	private String storeType;
 	private String keyAlias;
 	private String keyPassword;
 	private String firstAndLastName;
@@ -17,6 +18,5 @@ public class Cert {
 	private String twoLetterCountryCode;
 	private String signatureAlgorithm;
 	private String keyAlgorithm;
-	
 	
 }
