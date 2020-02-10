@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 import lombok.ToString;
 
@@ -35,6 +37,7 @@ public class Menu {
 	@ToString.Exclude
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="createBy", referencedColumnName="id", insertable = false, updatable = false)
+	@JsonIgnoreProperties
 	private User creator;
 	
 	

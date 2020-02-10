@@ -15,6 +15,8 @@ import javax.persistence.NamedAttributeNode;
 import javax.persistence.NamedEntityGraph;
 import javax.persistence.NamedEntityGraphs;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 import lombok.ToString;
 
@@ -52,7 +54,7 @@ public class MenuRole {
 	@ToString.Exclude
 	@ManyToMany(fetch=FetchType.LAZY)
 	@JoinColumn(name="id", insertable=false, updatable=false)
-    private List<User> user;
+	private List<User> user;
     
 	@ToString.Exclude
 	@ManyToMany(fetch=FetchType.LAZY)
